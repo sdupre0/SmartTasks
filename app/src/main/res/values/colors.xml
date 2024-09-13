@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFFFF</color>
+    <color name="task_green">#00897B</color>
+    <color name="task_yellow">#FFDE61</color>
+    <color name="task_beige">#F6EFDE</color>
+    <color name="task_red">#EF4B5E</color>
+    <color name="task_orange">#FBB777</color>
+</resources>

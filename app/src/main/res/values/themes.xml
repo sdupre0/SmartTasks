@@ -1,0 +1,87 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SmartTasks" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/amsipro_bold</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+    <style name="SmartTasks.Toolbar" parent="Base.Theme.SmartTasks">
+        <item name="android:layout_marginTop">22dp</item>
+        <item name="android:background">@color/task_yellow</item>
+    </style>
+    <style name="SmartTasks.Toolbar.Title" parent="Base.Theme.SmartTasks">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="SmartTasks.List" parent="Base.Theme.SmartTasks">
+        <item name="android:textSize">20sp</item>
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+    </style>
+    <style name="SmartTasks.List.Empty" parent="Base.Theme.SmartTasks">
+        <item name="android:textSize">33sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_margin">8dp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:drawablePadding">10dp</item>
+    </style>
+    <style name="SmartTasks.List.Task" parent="Base.Theme.SmartTasks">
+        <item name="android:background">@drawable/task_bg</item>
+        <item name="android:minHeight">53dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+        <item name="android:padding">7dp</item>
+    </style>
+    <style name="SmartTasks.List.Task.Title" parent="Base.Theme.SmartTasks">
+        <item name="android:layout_marginBottom">5dp</item>
+    </style>
+    <style name="SmartTasks.Task.Label" parent="Base.Theme.SmartTasks">
+        <item name="android:fontFamily">@font/amsipro_regular</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    <style name="SmartTasks.Task.Divider" parent="Base.Theme.SmartTasks">
+        <item name="android:layout_marginTop">7dp</item>
+        <item name="android:background">@color/task_beige</item>
+    </style>
+    <style name="SmartTasks.Detail.Frame" parent="Base.Theme.SmartTasks">
+        <item name="android:layout_marginTop">24dp</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+    </style>
+    <style name="SmartTasks.Detail.Layout" parent="Base.Theme.SmartTasks">
+        <item name="android:padding">10dp</item>
+    </style>
+    <style name="SmartTasks.Detail.Button" parent="Base.Theme.SmartTasks">
+        <item name="android:textColor">@color/white</item>
+    </style>
+    <style name="SmartTasks.Detail.Title" parent="Base.Theme.SmartTasks">
+        <item name="android:textSize">33sp</item>
+        <item name="android:layout_marginTop">36dp</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="SmartTasks.Detail.Description" parent="Base.Theme.SmartTasks">
+        <item name="android:fontFamily">@font/amsipro_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:scrollHorizontally">true</item>
+        <item name="android:lines">4</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:lineSpacingMultiplier">1.5</item>
+    </style>
+    <style name="SmartTasks.Detail.Status" parent="Base.Theme.SmartTasks">
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+    <style name="SmartTasks.Detail.Comment" parent="Base.Theme.SmartTasks">
+        <item name="android:fontFamily">@font/amsipro_regular</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:background">@drawable/task_bg</item>
+        <item name="android:minHeight">53dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginBottom">7dp</item>
+        <item name="android:layout_marginHorizontal">10dp</item>
+        <item name="android:padding">7dp</item>
+    </style>
+</resources>

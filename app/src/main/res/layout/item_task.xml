@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="task"
+            type="com.example.smarttasks.model.Task" />
+        <variable
+            name="listener"
+            type="com.example.smarttasks.view.TaskClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/SmartTasks.List.Task"
+        android:onClick="@{listener::onClick}"
+        android:tag="@{task.id}">
+
+        <RelativeLayout
+            android:id="@+id/status_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:paddingVertical="5dp"
+            app:layout_constraintTop_toTopOf="@id/task_title"
+            app:layout_constraintBottom_toBottomOf="@id/task_title"
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/resolved_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="-16dp"
+                android:src="@drawable/btn_resolved"
+                android:visibility="gone"/>
+
+            <ImageView
+                android:id="@+id/cant_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="-16dp"
+                android:src="@drawable/btn_unresolved"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+        
+        <TextView
+            android:id="@+id/task_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/status_icon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/SmartTasks.List.Task.Title"
+            android:text="@{task.title}" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_title"
+            android:background="#F6EFDE"/>
+
+        <TextView
+            android:id="@+id/task_due_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            style="@style/SmartTasks.Task.Label"
+            android:text="@string/task_due_label"
+            android:labelFor="@id/task_due"/>
+
+        <TextView
+            android:id="@+id/task_due"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/task_due_label"
+            app:bindDueDate="@{task.dueDate}" />
+
+        <TextView
+            android:id="@+id/days_left_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider"
+            style="@style/SmartTasks.Task.Label"
+            android:text="@string/task_days_left_label"
+            android:labelFor="@id/days_left"/>
+
+        <TextView
+            android:id="@+id/days_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/days_left_label"
+            app:bindDaysLeft="@{task.dueDate}"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

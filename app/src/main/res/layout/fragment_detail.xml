@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="task" type="com.example.smarttasks.model.Task" />
+        <variable name="status" type="com.example.smarttasks.util.Status" />
+        <variable name="comment" type="String" />
+        <variable name="listener" type="com.example.smarttasks.view.TaskClickListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/task_yellow"
+        tools:context=".view.DetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/detail_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/SmartTasks.Toolbar">
+
+            <ImageView
+                android:id="@+id/nav_prev"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/actionbar_nav_prev"
+                android:onClick="@{listener::onClick}"/>
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@id/nav_prev"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/task_detail_title"
+                style="@style/SmartTasks.Toolbar.Title"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <FrameLayout
+            android:id="@+id/task_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/detail_toolbar"
+            style="@style/SmartTasks.Detail.Frame">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:src="@drawable/task_details"
+                android:adjustViewBounds="true"
+                android:cropToPadding="false"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@style/SmartTasks.Detail.Layout">
+
+                <TextView
+                    android:id="@+id/task_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/SmartTasks.Detail.Title"
+                    android:text="@{task.title}" />
+
+                <View
+                    android:id="@+id/divider0"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/task_title"
+                    style="@style/SmartTasks.Task.Divider"/>
+
+                <TextView
+                    android:id="@+id/task_due_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider0"
+                    style="@style/SmartTasks.Task.Label"
+                    android:text="@string/task_due_label"
+                    android:labelFor="@id/task_due"/>
+
+                <TextView
+                    android:id="@+id/task_due"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/task_due_label"
+                    android:text="@{task.dueDate}" />
+
+                <TextView
+                    android:id="@+id/days_left_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider0"
+                    style="@style/SmartTasks.Task.Label"
+                    android:text="@string/task_days_left_label"
+                    android:labelFor="@id/days_left"/>
+
+                <TextView
+                    android:id="@+id/days_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/days_left_label"
+                    app:bindDaysLeft="@{task.dueDate}"/>
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/task_due"
+                    style="@style/SmartTasks.Task.Divider"/>
+
+                <TextView
+                    android:id="@+id/task_description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider1"
+                    style="@style/SmartTasks.Detail.Description"
+                    android:text="@{task.description}"/>
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/task_description"
+                    style="@style/SmartTasks.Task.Divider"/>
+
+                <TextView
+                    android:id="@+id/task_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/divider2"
+                    style="@style/SmartTasks.Detail.Status"
+                    bindTaskStatus="@{status}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/buttons_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/task_detail">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/resolve_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                style="@style/SmartTasks.Detail.Button"
+                android:background="@drawable/resolve_btn_bg"
+                android:text="@string/resolve_btn"
+                android:onClick="@{listener::onClick}"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/cant_resolve_btn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                style="@style/SmartTasks.Detail.Button"
+                android:background="@drawable/cant_resolve_btn_bg"
+                android:text="@string/cant_resolve_btn"
+                android:onClick="@{listener::onClick}"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/comment_box"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/task_detail"
+            style="@style/SmartTasks.Detail.Comment"
+            android:text="@{comment}"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/resolved_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/comment_box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/sign_resolved"
+            android:visibility="gone"/>
+
+        <ImageView
+            android:id="@+id/cant_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/comment_box"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/unresolved_sign"
+            android:visibility="gone"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

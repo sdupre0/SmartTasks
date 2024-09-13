@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Smart Tasks</string>
+    <string name="task_due_label">Due date</string>
+    <string name="task_days_left_label">Days left</string>
+    <string name="resolve_btn">Resolve</string>
+    <string name="cant_resolve_btn">Can\'t resolve</string>
+    <string name="task_detail_title">Task Detail</string>
+    <string name="no_tasks">No tasks for today!</string>
+</resources>
